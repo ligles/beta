@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    {{  css_url('bootstrap.min.css') }}
+    <!-- MetisMenu CSS -->
+
+    {{  css_url('metisMenu.min.css') }}
+    <!-- Timeline CSS -->
+
+    {{  css_url('timeline.css') }}
+    <!-- Morris Charts CSS -->
+
+    {{  css_url('morris.css') }}
+    <!-- Custom CSS -->
+
+    {{  css_url('sb-admin-2.css') }}
+    <!-- Custom Fonts -->
+    <link href="<?= base_url('assets/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- <?php
+    if ($css) {
+        foreach($css as $css_item) {
+            ?>{  css_url($css_item) }}<link rel="stylesheet" href="<?= css_url($css_item);?>"><?php
+        }
+    }
+    ?>-->
+</head>
+<body>
+<div class="container marge-top-login">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h1>Connexion default</h1>
+            </div>
+            <div class="panel-body">
+                {{validation_errors()}}
+                {{ form_open('auth/login')}}
+                <div class="form-group">
+                    <label for="username">Login</label>
+                    <input type="text" class="form-control" name="username" id="username" value="{{ set_value('username') }}" placeholder="Login">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" name="password" value="{{ set_value('password') }}" placeholder="Mot de passe">
+                </div>
+                <button type="submit" class="btn btn-default">Envoyer</button>
+               {{form_close()}}
+            </div>
+        </div>
+        {% if error is defined%}
+            {% if error == true %}
+                <div class="alert alert-danger">Identifiants invalides</div>
+            {% endif  %}
+        {% endif  %}
+    </div>
+</div>
+</body>
+</html>
